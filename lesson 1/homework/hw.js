@@ -150,11 +150,7 @@ console.log(person);
 firstName = prompt("Ім'я:");
 middleName = prompt("По-батькові:");
 lastName = prompt("Вік:");
-// if (firstName === 'Анастасія' ) {
 alert('Вітаю, ' + firstName + ' ' + middleName + '! Тобі ' + lastName + ' років.');
-// } else {
-//     alert('Ти не Анастасія!')
-// }
 
 // - За допомогою оператора typeof визначити типи наступних змінних та вивести їх в консоль.
 
