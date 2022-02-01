@@ -10,7 +10,9 @@ let n7 = Math.floor(Math.random() * 100);
 let n8 = Math.floor(Math.random() * 100);
 let n9 = Math.floor(Math.random() * 100);
 let n10 = Math.floor(Math.random() * 100);
-let result = [n1, n2, n3, n4, n5, n6, n7, n8, n9, n10];
+let numbers = [n1, n2, n3, n4, n5, n6, n7, n8, n9, n10];
+console.log(numbers);
+let result = (n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9 + n10)
 console.log(result);
 
 // 2. Створити об'єкт book з наступними полями  - назва, кількість сторінок, жанр
