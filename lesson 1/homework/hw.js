@@ -147,9 +147,9 @@ console.log(person);
 // - За допомогою 3х різних prompt() отримати 3 слова які являються вашими Імям, По-Батькові та роками.
 //     Вивести "Вітаю *Імя* *По батькові*. Тобі *вік* років".
 
-firstName = prompt("Ім'я:",firstName);
-middleName = prompt("По-батькові:",middleName);
-lastName = prompt("Вік:",lastName);
+firstName = prompt("Ім'я:");
+middleName = prompt("По-батькові:");
+lastName = prompt("Вік:");
 alert('Вітаю, ' + firstName + ' ' + middleName + '! Тобі ' + lastName + ' років.');
 
 // - За допомогою оператора typeof визначити типи наступних змінних та вивести їх в консоль.
