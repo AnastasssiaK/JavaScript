@@ -38,14 +38,14 @@ while (k < arr.length) {
     if (k % 2 !== 0) {
         console.log(arr[k]);
     }
-        k++;
+    k++;
 }
 k = arr.length - 1;
 while (k >= 0) {
     if (k % 2 !== 0) {
         console.log(arr[k]);
     }
-        k--;
+    k--;
 }
 
 // 4. перебрати циклом for та вивести  числа тільки з непарним індексом
@@ -70,7 +70,7 @@ while (l < arr.length) {
     if (arr[l] % 2 === 0) {
         console.log(arr[l]);
     }
-        l++;
+    l++;
 }
 
 l = arr.length - 1;
@@ -78,7 +78,7 @@ while (l >= 0) {
     if (arr[l] % 2 === 0) {
         console.log(arr[l]);
     }
-        l--;
+    l--;
 }
 
 // 6. перебрати циклом for та вивести  числа тільки парні  значення
@@ -104,8 +104,8 @@ for (let j = 0; j < arr.length; j++) {
         arr[j] = 'okten';
         console.log(arr[j]);
     }
-    console.log(arr);
 }
+console.log(arr);
 
 for (let j = arr.length - 1; j >= 0; j--) {
     if (arr[j] % 3 === 0) {
