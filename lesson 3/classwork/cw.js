@@ -96,6 +96,7 @@ for (let j = arr.length - 1; j >= 0; j--) {
     }
 }
 
+
 // 7. замінити кожне число кратне 3 на слово "okten"
 console.log("Завдання 7");
 
@@ -110,11 +111,29 @@ console.log(arr);
 for (let j = arr.length - 1; j >= 0; j--) {
     if (arr[j] % 3 === 0) {
         arr[j] = 'okten';
+    }
+        console.log(arr[j]);
+}
+
+
+for (let j = 0; j < arr.length; j++) {
+    if (arr[j] % 3 === 0) {
+        arr[j] = 'okten';
         console.log(arr[j]);
     }
 }
+arr.reverse();
 console.log(arr);
 
+
+// let arrBack = [];
+// for (let j = arr.length - 1; j >= 0; j--) {
+//     if (arr[j] % 3 === 0) {
+//         arr[j] = 'okten';
+//     }
+//     arrBack.push(arr[i]);
+// }
+// console.log(arr);
 
 // 8. вивести масив в зворотньому порядку.
 console.log("Завдання 8");
