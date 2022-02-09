@@ -50,8 +50,10 @@
     let keyArray = [];
 
     function returnKey(array) {
-        for (let i = 0; i < array.length; i++) {
-            keyArray.push(Object.keys(array[i]));
+        for (let i = 0; i < 1; i++) {
+            for (const arrKey in array[i]) {
+                keyArray.push(arrKey);
+            }
         }
         return keyArray;
     }
@@ -63,18 +65,42 @@
         {id: 4, name: 'olya', age: 28, status: false}
     ]));
 
+
+    // function returnKey(array) {
+    //     for (let i = 0; i < array.length; i++) {
+    //         keyArray.push(Object.keys(array[i]));
+    //     }
+    //     return keyArray;
+    // }
+    //
+    // console.log(returnKey([
+    //     {id: 1, name: 'vasya', age: 31, status: false},
+    //     {id: 2, name: 'petya', age: 30, status: true},
+    //     {id: 3, name: 'kolya', age: 29, status: true},
+    //     {id: 4, name: 'olya', age: 28, status: false}
+    // ]));
+
     //     - Створити функцію яка приймає масив будь яких объектів, та повертає масив значень всіх обєктів
     // EXAMPLE:
     //     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ Dima, 13, Camry ]
 
-    let valuesArray = []
+    let valuesArray = [];
 
     function returnValues(array) {
         for (let i = 0; i < array.length; i++) {
-            valuesArray.push(Object.values(array[i]));
+            for (const element in array[i]) {
+                valuesArray.push(`${array[i][element]}`);
+            }
         }
         return valuesArray;
-    }
+        }
+
+    // function returnValues(array) {
+    //     for (let i = 0; i < array.length; i++) {
+    //         valuesArray.push(Object.values(array[i]));
+    //     }
+    //     return valuesArray;
+    // }
 
     console.log(returnValues([
         {id: 1, name: 'vasya', age: 31, status: false},
