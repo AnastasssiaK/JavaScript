@@ -1,13 +1,33 @@
 // 1. Створити пустий масив та :
 //     a. заповнити його 50 парними числами за допомоги циклу.
 
+// let arrA = [];
+// for (let i = 0; i < 100; i++) {
+//     if (i % 2 === 0) {
+//         arrA[i] = i;
+//     }
+// }
+// console.log(arrA);
+
+// let arrA = [];
+// let numA = 2;
+// for (let i = 0; i < 50; i++) {
+//     if (numA % 2 === 0) {
+//         arrA[i] = numA;
+//         numA = numA + 2;
+//     }
+// }
+// console.log(arrA);
+
 let arrA = [];
-for (let i = 0; i < 100; i++) {
-    if (i % 2 === 0) {
-        arrA[i] = i;
-    }
+let numA = 0;
+for (let i = 0; i < 50; i ++) {
+if (numA % 2 === 0) {
+    numA += 2;
+    arrA.push(numA);
 }
-console.log(arrA)
+}
+console.log(arrA);
 
 
 //     b. заповнити його 50 непарними числами за допомоги циклу.
@@ -117,12 +137,12 @@ console.log(arrEightTwo);
 // - Дано 2 масиви з рівною кількістю об'єктів.
 // Масиви:
 
-    let usersWithId = [
-        {id: 1, name: 'vasya', age: 31, status: false},
-        {id: 2, name: 'petya', age: 30, status: true},
-        {id: 3, name: 'kolya', age: 29, status: true},
-        {id: 4, name: 'olya', age: 28, status: false}
-    ];
+let usersWithId = [
+    {id: 1, name: 'vasya', age: 31, status: false},
+    {id: 2, name: 'petya', age: 30, status: true},
+    {id: 3, name: 'kolya', age: 29, status: true},
+    {id: 4, name: 'olya', age: 28, status: false}
+];
 
 let citiesWithId = [
     {user_id: 3, country: 'USA', city: 'Portland'},
@@ -182,29 +202,29 @@ console.log(arrEmpty);
 
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for зібрати всі букви в слово.
 
-let abc = [ 'a', 'b', 'c'];
+let abc = ['a', 'b', 'c'];
 let resultAbc = '';
 for (let j = 0; j < abc.length; j++) {
-    resultAbc+= abc[j];
+    resultAbc += abc[j];
 }
-    console.log(resultAbc);
+console.log(resultAbc);
 
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу while зібрати всі букви в слово.
 
-abc = [ 'a', 'b', 'c'];
+abc = ['a', 'b', 'c'];
 resultAbc = '';
 let k = 0;
 while (k < abc.length) {
-    resultAbc+= abc[k];
+    resultAbc += abc[k];
     k++;
 }
 console.log(resultAbc);
 
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for of зібрати всі букви в слово.
 
-abc = [ 'a', 'b', 'c'];
+abc = ['a', 'b', 'c'];
 resultAbc = '';
 for (let abcElement of abc) {
-    resultAbc+= abcElement;
+    resultAbc += abcElement;
 }
 console.log(resultAbc);
