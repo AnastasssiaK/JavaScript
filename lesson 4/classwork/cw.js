@@ -151,7 +151,7 @@ let newArray = [];
 function arrayOfNumber (n) {
     for (let i = 0; i < n; i++) {
         newArray[i] = Math.floor(Math.random() * 100);
-        //arrayNew.push(Math.floor(Math.random() * 100));
+        //newArray.push(Math.floor(Math.random() * 100));
     }
     return newArray;
 }
