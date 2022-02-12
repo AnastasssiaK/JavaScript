@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Additional</title>
+</head>
+<body>
+<script>
+
+    //   - Дано натуральное число n. Выведите все числа от 1 до n.
+
+    function rec(n) {
+        if (n === 1) {
+            return 1;
+        }
+        return rec(n - 1) + ", " + n;
+    }
+
+    console.log(rec(10));
+
+    //   - Даны два целых числа A и В . Выведите все числа от A до B включительно, в порядке возрастания, если A < B, или в порядке убывания в противном случае.
+
+    function recAB(a, b) {
+        if (a > b) {
+            if (a === b) {
+                return a;
+            }
+            return a + ", " + recAB(a - 1, b);
+        } else {
+            if (a === b) {
+                return a;
+            }
+            return a + ", " + recAB(a + 1, b);
+        }
+    }
+
+    console.log(recAB(20, 10));
+
+    //   -   функція Приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
+    //   EXAMPLE:
+    //   foo([9,8,0,4], 0) // ==> [ 8, 9, 0, 4 ]
+    //   foo([9,8,0,4], 1) // ==> [ 9 ,0, 8, 4 ]
+    //   foo([9,8,0,4], 2) // ==> [ 9, 8, 4, 0 ]
+    function changeArr (array,i) {
+        for (let j = 0; j < array.length; j++) {
+        if (j === i) {
+          j += i;
+        }
+        }
+    }
+let foo = [9,8,0,4];
+    console.log(changeArr(foo,0));
+
+    // - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
+    // Двожина масиву від 2 до 100
+    // EXAMPLE:
+    // [1,0,6,0,3] => [1,6,3,0,0]
+    // [0,1,2,3,4] => [1,2,3,4,0]
+    // [0,0,1,0]   => [1,0,0,0]
+
+    let array = (length, limit) => {
+        let randomArr = [];
+        for (let i = 0; i < length; i++) {
+            randomArr.push(Math.floor(Math.random() * limit));
+        }
+        return randomArr;
+    }
+    console.log(array(25,50));
+
+</script>
+</body>
+</html>
