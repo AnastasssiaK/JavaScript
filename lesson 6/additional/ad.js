@@ -1,6 +1,15 @@
 // - Напишите функцию cutString(str, n), которая делит строку на подстроки, состоящие из n символов.
 // document.writeln(cutString('наслаждение',3)) // [нас,лаж,ден,ие]
-//
+
+// function cutString(str, n) {
+//     let newRes = [];
+//     for (let i = 0; i < str.length; i += n) {
+//         newRes.push(str.substr(i, n));
+//     }
+//     return newRes;
+// }
+// document.writeln(cutString('наслаждение',3));
+
 // - Створити функцію-валідатор для адрес електронної пошти. Перевірка повинна включати в себе :данні до знака равлика(@), наявність равлика, крапку яка знаходиться не меньше ніж на 2 символ далі після равлика, функція не чутлива до регістру (some@email.com,SOME@EMAIL.COM,some@EMAIL.com, і тд - однакові значення)
 // Протестувати на значеннях
 // someemail@gmail.com
@@ -85,9 +94,19 @@
 // відсортувати його в спадаючому порядку за кількістю елементів в полі modules
 //
 // - Напишіть функцію count(str, stringsearch), яка повертає кількість символів stringsearch у рядку str.
-//     let symb = "о", str = "Астрономия это наука о небесных объектах";
-// document.writeln(count(str, symb)) // 5
-//
+
+let count = (str, stringsearch) => {
+
+}
+let symb = "о",
+str = "Астрономия это наука о небесных объектах";
+document.writeln(count(str, symb)) // 5
+
 // - Напишіть функцію cutString(str, n), яка видаляє зайві слова з рядка str, залишивши у ній n слів.
-//     let str = "Сила тяжести приложена к центру масс тела";
-// document.writeln(cutString(str, 5)) // 'Сила тяжести приложена к центру'
+
+str = "Сила тяжести приложена к центру масс тела";
+let cutString = (str, n) => str.split(' ').splice(0, n).join(' ');
+
+document.writeln(cutString(str, 5)) // 'Сила тяжести приложена к центру'
+
+

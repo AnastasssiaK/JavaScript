@@ -3,14 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Additional 3</title>
+    <style>
+        body {
+            margin: 0 auto;
+        }
+        .wrap {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+        .post-card {
+            background: #f3ccde;
+            border-radius: 10px;
+            box-sizing: border-box;
+            padding: 10px 20px;
+            margin: 5px;
+            align-items: center;
+        }
+        p {
+            font-size: small;
+            text-align: justify;
+        }
+
+    </style>
 </head>
 <body>
 <!--template 1.1-->
-<div class="wrap">
-    <div class="post-card">
-        <h3>ID - TITLE</h3>
-        <p>BODY</p>
-    </div>
+<!--<div class="wrap">-->
+<!--    <div class="post-card">-->
+<!--        <h3>ID - TITLE</h3>-->
+<!--        <p>BODY</p>-->
+<!--    </div>-->
 
     <!--
     ...
@@ -19,14 +41,13 @@
     other posts
     -->
 
-</div>
-
+<!--</div>-->
 
 <script>
     /*За допомогою циклу вивести всю інформацію про пости використовуючи шаблон Template 1.1.
     * ЗА допомоги стилів побудувати структуру "сітки" по 5 об'єктів в лінію
     * */
-    [
+  let array =  [
         {
             userId: 1,
             id: 1,
@@ -628,6 +649,16 @@
             body: 'cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut'
         }
     ];
+
+    document.write(`<div class="wrap">`);
+    for (const user of array) {
+    document.write(`<div class="post-card">`);
+    document.write(`<h3>${user.userId} - ${user.title}</h3>`);
+    document.write(`<p>${user.body}</p>`);
+    document.write(`</div>`);
+    }
+    document.write(`</div>`);
+
 </script>
 </body>
 </html>

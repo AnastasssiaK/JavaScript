@@ -3,6 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Additional 2</title>
+    <style>
+        body {
+            margin: 0 auto;
+        }
+        .users-box {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            grid-row-gap: 30px;
+        }
+        .user-block {
+            width: 45%;
+            height: 20%;
+            border: 2px solid black;
+            box-sizing: border-box;
+            padding: 30px;
+        }
+        h2 {
+            margin-top: 16px;
+        }
+        .address-block {
+            border: 1px dashed silver;
+            box-sizing: border-box;
+            padding: 10px 25px;
+        }
+
+
+    </style>
 </head>
 <body>
 
@@ -20,12 +49,12 @@
 
 <!--    </div>-->
 
-    <!--
-    ...
-    ...
-    ...
-    other users
-    -->
+<!--
+...
+...
+...
+other users
+-->
 <!--</div>-->
 
 
@@ -266,6 +295,21 @@
             }
         }
     ];
+
+    document.write(`<div class="users-box">`);
+    for (const user of usersList) {
+        document.writeln(`<div class="user-block">`);
+        document.write(`<h2>${user.id} - ${user.name} - ${user.surname} </h2>`);
+        document.write(`<h3>${user.email} - ${user.phone}</h3>`);
+        document.write(`<div class="address-block">`);
+        document.write(`<p>City - ${user.address.city}</p>`);
+        document.write(`<p>Street - ${user.address.street}</p>`);
+        document.write(`<p>Suite - ${user.address.suite}</p>`);
+        document.write(`<p>Zip code - ${user.address.zipcode}</p>`);
+        document.write(`</div>`);
+        document.write(`</div>`);
+    }
+    document.write(`</div>`);
 
 
 </script>
