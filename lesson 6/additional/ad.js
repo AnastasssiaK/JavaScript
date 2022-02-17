@@ -120,14 +120,15 @@ console.log(coursesArray.sort((min, max) => max.modules.length - min.modules.len
 function count(str, stringsearch) {
     let result = 0;
     for (let i = 0; i < str.length; i++) {
-        if (str[i] === stringsearch) {
+        let string = str.toLowerCase();
+        if (string[i] === stringsearch) {
             result += 1;
         }
     }
     return result;
 }
 
-let symb = "о";
+let symb = "а";
 let str = "Астрономия это наука о небесных объектах";
 document.write(`<div>Сума введеного симоволу в цій строці = ${count(str, symb)}.</div>`) // 5
 
