@@ -127,7 +127,7 @@ class Prince {
         this.shoe = shoe;
     }
 }
-let prince = new Prince('John', 28,33);
+let prince = new Prince('John', 28,'33');
 console.log(prince);
 
 //     За допомоги циклу знайти яка попелюшка повинна бути з принцом.
