@@ -26,48 +26,37 @@
 // }
 //**************************************************************************
 
-class Object {
-    constructor(id, name, username, email, address, phone, website, company) {
+class Obj {
+    constructor(id, name, username, email, address,street, suite, city, zipcode, geo,lat, lng, phone, website, company, companyName, catchPhrase, bs) {
         this.id = id;
         this.name = name;
         this.username = username;
         this.email = email;
-        this.address = address;
+        this.address = {
+            street: street,
+            suite: suite,
+            city: city,
+            zipcode: zipcode,
+            geo: {
+                lat: lat,
+                lng: lng
+            }
+        };
         this.phone = phone;
         this.website = website;
-        this.company = company;
+        this.company = {
+            name: companyName,
+            catchPhrase: catchPhrase,
+            bs: bs
+        };
     }
 }
 
-class Address {
-    constructor(street, suite, city, zipcode, geo) {
-        this.street = street;
-        this.suite = suite;
-        this.city = city;
-        this.zipcode = zipcode;
-        this.geo = geo;
-    }
-}
+console.log(new Obj(1, 'Leanne Graham', 'Bret', 'Sincere@april.biz',
+        'Kulas Light', 'Apt. 556', 'Gwenborough', '92998-3874',
+        '-37.3159', '81.1496', '1-770-736-8031 x56442', 'hildegard.org',
+        'Romaguera-Crona', 'Multi-layered client-server neural-net', 'harness real-time e-markets'));
 
-class Geo {
-    constructor(lat, lng) {
-        this.lat = lat;
-        this.lng = lng;
-    }
-}
-
-class Company {
-    constructor(name, catchPhrase, bs) {
-        this.name = name;
-        this.catchPhrase = catchPhrase;
-        this.bs = bs;
-    }
-}
-
-console.log(new Object(1, 'Leanne Graham', 'Bret', 'Sincere@april.biz',
-        new Address('Kulas Light', 'Apt. 556', 'Gwenborough', '92998-3874',
-        new Geo('-37.3159', '81.1496')), '1-770-736-8031 x56442', 'hildegard.org',
-        new Company('Romaguera-Crona', 'Multi-layered client-server neural-net', 'harness real-time e-markets')));
 
 //**************************************************************************
 
@@ -114,11 +103,6 @@ function Attrs(titleOfAttr, actionOfAttr) {
     this.titleOfAttr = titleOfAttr;
     this.actionOfAttr = actionOfAttr;
 }
-
-
-// let example = new Constructor('area', 'Каждый элемент <area> определяет активные области изображения, которые являются ссылками...',
-//    [new Attrs('accesskey', 'Переход к области с помощью комбинации клавиш')] );
-// console.log(example);
 
 let a = new Constructor('a', 'Тег <a> є одним з найважливіших елементів HTML і призначений для створення посилань. Залежно від наявності атрибутів name або href тег <a> встановлює посилання або якір. Якорем називається закладка всередині сторінки, яку можна вказати як ціль посилання. Під час використання посилання, яке вказує на якір, відбувається перехід до закладки всередині веб-сторінки.',
     [new Attrs('accesskey', 'Активація посилання за допомогою комбінації клавіш.'),
