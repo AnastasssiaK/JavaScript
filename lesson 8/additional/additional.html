@@ -51,31 +51,67 @@
 
 
     let arrayWithClass = [];
-    function allClassName (start) {
-        let children = start.children;
-        for (const child of children) {
-            if (child.className !== '') {
-                arrayWithClass.push(child.className);
+
+    // function allClassName (start) {
+    //     let children = start.children;
+    //     for (const child of children) {
+    //         if (child.className !== '') {
+    //             arrayWithClass.push(child.className);
+    //         }
+    //         allClassName(child);
+    //     }
+    // }
+    // allClassName(document.body);
+    // console.log(arrayWithClass);
+
+    //*******************************
+
+    // function allClassName(start) {
+    //     let children = start.children;
+    //
+    //     for (const child of children) {
+    //         if (child.classList.length) {
+    //             for (const childElement of child.classList) {
+    //                 if (arrayWithClass.indexOf(childElement) === -1) {
+    //                     arrayWithClass.push(childElement);
+    //                 }
+    //             }
+    //         }
+    //         allClassName(child);
+    //     }
+    // }
+    //
+    // allClassName(document.body);
+    // console.log(arrayWithClass);
+
+    //******************************
+     function allClassName (start) {
+        for (const childClass of start.classList) {
+            if (arrayWithClass.indexOf(childClass) === -1) {
+                arrayWithClass.push(childClass);
             }
-            allClassName(child);
         }
+        let children = start.children;
+         for (const child of children) {
+            allClassName(child);
+         }
     }
     allClassName(document.body);
     console.log(arrayWithClass);
 
     //  Для id:
-    let arrayWithId = [];
-    function allId (start) {
-        let children = start.children;
-        for (const child of children) {
-            if (child.id !== '') {
-                arrayWithId.push(child.id);
-            }
-            allId(child);
-        }
-    }
-    allId(document.body);
-    console.log(arrayWithId);
+    // let arrayWithId = [];
+    // function allId (start) {
+    //     let children = start.children;
+    //     for (const child of children) {
+    //         if (child.id !== '') {
+    //             arrayWithId.push(child.id);
+    //         }
+    //         allId(child);
+    //     }
+    // }
+    // allId(document.body);
+    // console.log(arrayWithId);
 
 </script>
 </body>
