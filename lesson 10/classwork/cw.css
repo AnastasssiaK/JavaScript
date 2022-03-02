@@ -1,0 +1,49 @@
+body {
+    margin: 0 auto;
+}
+h3 {
+    text-align: center;
+}
+.forms {
+    display: flex;
+    justify-content: space-evenly;
+}
+form  {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: large;
+    margin: 20px auto;
+}
+h5 {
+    margin: 0;
+}
+input {
+    width: 90%;
+    margin: 10px auto;
+}
+button {
+    display: flex;
+    justify-content: center;
+    margin: 10px auto 20px;
+    cursor: pointer;
+}
+
+
+/*task 2*/
+.inputs {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+}
+
+/*task 3*/
+tr {
+    width: 80%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
