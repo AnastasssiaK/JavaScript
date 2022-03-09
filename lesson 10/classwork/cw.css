@@ -32,18 +32,29 @@ button {
 
 
 /*task 2*/
-.inputs {
+.wrap {
+    width: 450px;
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 20px auto;
+}
+.wrap input {
+    width: 250px;
+    margin-right: 0;
+}
+.wrap label {
+    display: flex;
+    margin: 0 20px;
     align-items: center;
 }
 
-/*task 3*/
-tr {
-    width: 80%;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
+table {
     margin: 0 auto;
+}
+tr,td, table {
+    border: 1px solid black;
+    text-align: center;
+}
+td {
+    padding: 20px;
 }

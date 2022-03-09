@@ -51,41 +51,79 @@
 let task = document.createElement('h3');
 task.innerText = 'Task 2';
 
-let inputs = document.createElement('div');
-inputs.classList.add('inputs');
+let wrap = document.createElement('div');
+wrap.classList.add('wrap');
 
+let labOne = document.createElement('label');
+labOne.innerText = 'Кількість рядків:';
 let inputOne = document.createElement('input');
 inputOne.setAttribute('name', 'inputOne');
+labOne.appendChild(inputOne);
+
+let labTwo = document.createElement('label');
+labTwo.innerText = 'Кількість ячеєк:';
 let inputTwo = document.createElement('input');
 inputTwo.setAttribute('name', 'inputTwo');
+labTwo.appendChild(inputTwo);
+
+let labThree = document.createElement('label');
+labThree.innerText = 'Вміст ячеєк:';
 let inputThree = document.createElement('input');
 inputThree.setAttribute('name', 'inputThree');
+labThree.appendChild(inputThree);
 
 let btn = document.createElement('button');
 btn.innerText = 'Зчитати інформацію';
 
 let hr = document.createElement('hr');
 
-inputs.append(inputOne, inputTwo, inputThree);
-document.body.append(task, inputs, btn, hr);
+wrap.append(labOne, labTwo, labThree);
+document.body.append(task, wrap, btn, hr);
+
+// btn.addEventListener('click', function () {
+//     let one = inputOne.value;
+//     let two = inputTwo.value;
+//     let three = inputThree.value;
+//
+//     let trOne = document.createElement('tr');
+//     trOne.innerText = one;
+//
+//     let trTwo = document.createElement('tr');
+//     trTwo.innerText = two;
+//
+//     let trThree = document.createElement('tr');
+//     trThree.innerText = three;
+//
+//     document.body.append(trOne, trTwo, trThree);
+//
+// });
 
 btn.addEventListener('click', function () {
-    let one = inputOne.value;
-    let two = inputTwo.value;
-    let three = inputThree.value;
+    let tr = inputOne.value;
+    let td = inputTwo.value;
+    let enterText = inputThree.value;
 
-    let trOne = document.createElement('tr');
-    trOne.innerText = one;
+    function createTable(tr, td, text) {
+        let table = document.createElement('table');
+        let tableDiv = document.createElement('div');
+        tableDiv.classList.add('tableDiv');
 
-    let trTwo = document.createElement('tr');
-    trTwo.innerText = two;
+        tableDiv.append(table);
+        document.body.appendChild(tableDiv);
 
-    let trThree = document.createElement('tr');
-    trThree.innerText = three;
+        for (let i = 0; i < tr; i++) {
+            let tr = document.createElement('tr');
+            for (let j = 0; j < td; j++) {
+                let td = document.createElement('td');
+                td.innerText = `${text}`;
+                table.appendChild(tr);
+                tr.appendChild(td);
+            }
+        }
+    }
 
-    document.body.append(trOne, trTwo, trThree);
-
-});
+    createTable(tr, td, enterText);
+})
 
 // - Сворити масив не цензцрних слів.
 //     Сворити інпут текстового типу.
