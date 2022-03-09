@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classwork 11</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        .wrap {
+            /*display: flex;*/
+            /*flex-wrap: wrap;*/
+            /*justify-content: space-evenly;*/
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            column-gap: 30px;
+            row-gap: 30px;
+            margin: 0 50px;
+        }
+        .wrap div {
+            /*width: 300px;*/
+            border: 1px solid black;
+            padding: 20px;
+        }
+
+        h3 {
+            text-align: center;
+        }
+        button {
+            display: flex;
+            margin: auto;
+            cursor: pointer;
+        }
+        .btnFavorites {
+            height: 50px;
+            width: 300px;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin:  50px auto;
+            font-weight: bold;
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+<script src="cw.js"></script>
+</body>
+</html>

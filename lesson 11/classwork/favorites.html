@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Favorite</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .users {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            column-gap: 30px;
+            row-gap: 30px;
+            margin: 50px 80px;
+            padding: 0;
+        }
+        .users li {
+            border: 1px solid black;
+            padding: 30px;
+            list-style: none;
+            text-align: center;
+        }
+        a {
+            color: black;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+</body>
+<script>
+    let favorites = JSON.parse(localStorage.getItem('favourites'));
+    console.log(favorites)
+
+
+    let h1 = document.createElement('h1');
+    h1.innerText = 'Favorites users'
+    let users = document.createElement('ul');
+    users.classList.add('users');
+    for (const favorite of favorites) {
+        let user = document.createElement('li');
+        user.innerHTML = `<h3>Name: ${favorite.name.charAt(0).toUpperCase() + favorite.name.slice(1)}</h3>
+<p>Age: ${favorite.age} y.o.</p>
+<p>Status: ${favorite.status}.</p>`;
+        users.append(user);
+    }
+
+    let back = document.createElement('a');
+    back.innerText = 'Перейти до усіх користувачів';
+    back.href = `classwork.html?pd=${JSON.stringify(favorites)}`;
+
+    document.body.append(h1, users, back);
+
+</script>
+</html>
