@@ -1,11 +1,45 @@
 // - Описати скріпт, котрий, якщо доєднати до будь-якої сторінки дозволить зробити наступне:
 //     При лівому кліку миші вивести в консоль інформацію про блок або елемент на який відбувся клік.
 //     Інформація яку потрібно вивести: Назва тегу, список класів, список ід, розміри в форматі висота*ширина
-//
+
+document.onmousedown = function (e) {
+    console.log(`Tag name: "${e.target.localName}"; Class List: "${e.target.classList}"; Id List: "${e.target.id}";
+    Size: ${e.target.clientHeight}*${e.target.clientWidth}.`);
+}
+
 // - Описати скріпт, котрий, якщо доєднати до будь-якої сторінки дозволить зробити наступне:
 //     При лівому кліку миші  зробить popup (спливаючий блок) в якому буде вся інформація про блок.
 //     Інформація яку потрібно вивести в popup: Назва тегу, список класів, список ід, розміри в форматі висота*ширина
-//
+let unlock = true;
+const timeout = 800;
+
+document.addEventListener('mousedown', function (e) {
+let popup = document.createElement('div');
+popup.classList.add('popup');
+let popupBody = document.createElement('div');
+popupBody.classList.add('popupBody');
+let close = document.createElement('button');
+close.classList.add('close')
+close.innerText = 'Закрити';
+
+e.target.classList.add('show');
+close.addEventListener('click', () => {
+    e.target.classList.remove('show');
+})
+
+popupBody.innerHTML = `<h4>Інформація про об'єкт:</h4>
+<ul>
+<li>Tag name: "${e.target.localName}";</li>
+<li>Class List: "${e.target.classList}";</li>
+<li>Id List: "${e.target.id}";</li>
+<li>Size: ${e.target.clientHeight}*${e.target.clientWidth}.</li>
+</ul>`;
+popupBody.appendChild(close);
+popup.appendChild(popupBody);
+document.body.appendChild(popup);
+//стилі напевно також треба було описати в скріпті
+})
+
 // -- взять массив пользователей
 // let usersWithAddress = [
 //     {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},

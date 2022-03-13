@@ -121,7 +121,6 @@ btn.addEventListener('click', function () {
             }
         }
     }
-
     createTable(tr, td, enterText);
 })
 
