@@ -10,22 +10,15 @@ document.onmousedown = function (e) {
 // - Описати скріпт, котрий, якщо доєднати до будь-якої сторінки дозволить зробити наступне:
 //     При лівому кліку миші  зробить popup (спливаючий блок) в якому буде вся інформація про блок.
 //     Інформація яку потрібно вивести в popup: Назва тегу, список класів, список ід, розміри в форматі висота*ширина
-let unlock = true;
-const timeout = 800;
 
 document.addEventListener('mousedown', function (e) {
 let popup = document.createElement('div');
 popup.classList.add('popup');
 let popupBody = document.createElement('div');
 popupBody.classList.add('popupBody');
-let close = document.createElement('button');
-close.classList.add('close')
-close.innerText = 'Закрити';
 
-e.target.classList.add('show');
-close.addEventListener('click', () => {
-    e.target.classList.remove('show');
-})
+    e.target.classList.toggle('show');
+    e.disabled = true;
 
 popupBody.innerHTML = `<h4>Інформація про об'єкт:</h4>
 <ul>
@@ -34,7 +27,6 @@ popupBody.innerHTML = `<h4>Інформація про об'єкт:</h4>
 <li>Id List: "${e.target.id}";</li>
 <li>Size: ${e.target.clientHeight}*${e.target.clientWidth}.</li>
 </ul>`;
-popupBody.appendChild(close);
 popup.appendChild(popupBody);
 document.body.appendChild(popup);
 //стилі напевно також треба було описати в скріпті

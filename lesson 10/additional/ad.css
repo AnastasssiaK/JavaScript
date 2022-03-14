@@ -43,15 +43,12 @@ h3 {
     top: 0;
     left: 0;
     opacity: 1;
-    visibility: hidden;
-    /*overflow-y: auto;*/
-    /*overflow-x: hidden;*/
+    /*visibility: hidden;*/
     transition: 0.8s;
 }
 .popup.show {
     /*transform: translate(0px, 0px);*/
-    /*opacity: 1;*/
-    /*visibility: visible;*/
+    visibility: visible;
     pointer-events: auto;
     opacity: 1;
 }
