@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 13</title>
+</head>
+<body>
+<script>
+
+    console.log('Розпорядок дня:');
+
+    // setTimeout(() => {
+    //     let counter = 8.00;
+    //     console.log(counter, '- Підйом');
+    //     setTimeout(() => {
+    //         counter = counter + 0.30;
+    //         console.log(counter, '- Сніданок');
+    //         setTimeout(() => {
+    //             counter += 0.70;
+    //             console.log(counter, '- Навчання онлайн');
+    //             setTimeout(() => {
+    //                 counter += 5;
+    //                 console.log(counter, '- Обід');
+    //                 setTimeout(() => {
+    //                     counter++;
+    //                     console.log(counter, 'Робота онлайн');
+    //                     setTimeout(() => {
+    //                         counter += 4.15;
+    //                         console.log(counter, 'Вечеря');
+    //                         setTimeout(() => {
+    //                             counter ++;
+    //                             console.log(counter, 'Виконання домашніх завдань та практичних робіт');
+    //                             setTimeout(() => {
+    //                                 counter += 3.3;
+    //                                 console.log(counter, 'Сон');
+    //                             }, 3000)
+    //                         }, 3000)
+    //                     }, 3000)
+    //                 }, 3000)
+    //             }, 3000)
+    //         }, 3000)
+    //     }, 3000)
+    // }, 3000);
+
+
+    new Promise((resolve, reject) => {
+        let counter = 8;
+        setTimeout(() => {
+            console.log(counter, 'Підйом');
+            counter += 0.3;
+            resolve(counter);
+
+        }, 2000);
+    })
+        .then((counter) => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log(counter, 'Сніданок');
+                    counter += 0.7;
+                    resolve(counter);
+                }, 2000)
+            })
+        })
+        .then(counter => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log(counter, 'Обід');
+                    counter += 5;
+                    resolve(counter);
+
+                }, 2000)
+            });
+        })
+        .then(counter => {
+            new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log(counter, 'Робота онлайн');
+                    counter++;
+                    resolve(counter)
+
+                }, 2000);
+            });
+        })
+        .then(counter => {
+            new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log(counter, 'Вечеря');
+                    counter+=4.15;
+                    resolve(counter)
+
+                }, 2000);
+            });
+        })
+        .then(counter => {
+            new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log(counter, 'Виконання домашніх завдань та практичних робіт');
+                    counter++;
+                    resolve(counter)
+
+                }, 2000);
+            });
+        })
+        .then(counter => {
+            new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log(counter, 'Сон');
+                    counter+=3.3;
+                    resolve(counter)
+
+                }, 2000);
+            });
+        })
+
+
+</script>
+</body>
+</html>
