@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini-project JS</title>
+    <style>
+        h1, h3 {
+            text-align: center;
+        }
+        .usersBox {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-row-gap: 40px;
+            grid-column-gap: 60px;
+            margin: 30px 60px;
+        }
+        .userBox {
+            box-sizing: border-box;
+            padding: 20px 40px;
+            border: 1px solid black;
+        }
+        button {
+            cursor: pointer;
+        }
+        .btnMore {
+            display: block;
+            margin: 0 auto;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Users</h1>
+<div class="usersBox"></div>
+<script>
+    // 1 получить массив объектов user с endpoint`а https://jsonplaceholder.typicode.com/users
+    // 2 Вывести id,name всех user в index.html. Отдельный блок для каждого user.
+    // 3 Добавить каждому блоку кнопку/ссылку , при клике на которую происходит переход на страницу user-details.html, которая имеет детальную информацию про объект на который кликнули
+
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(usersData => {
+                console.log(usersData);
+                let users = document.getElementsByClassName('usersBox')[0];
+            for (const userItem of usersData) {
+                // let users = document.getElementsByClassName('usersBox');
+                let user = document.createElement('div');
+                user.classList.add('userBox');
+                let id = document.createElement('h3');
+                id.innerHTML = `${userItem.id} - ${userItem.name}`;
+                let btnMore = document.createElement('button');
+                btnMore.classList.add('btnMore');
+                btnMore.innerText = 'Дізнатися більше';
+
+                btnMore.onclick = (e) => {
+                    e.preventDefault();
+                    location.href = `./user-details.html?data=${JSON.stringify(userItem)}`
+                }
+
+                user.append(id,btnMore);
+                users.appendChild(user);
+            }
+            }
+        )
+</script>
+</body>
+</html>

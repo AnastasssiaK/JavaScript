@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post details</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        .postDetail {
+            margin: 20px;
+        }
+        .commentsBox {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-row-gap: 30px;
+            column-gap: 30px;
+            margin: 30px 20px;
+        }
+        .commentBox {
+            box-sizing: border-box;
+            padding: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<h1>Post details</h1>
+<div class="postDetail"></div>
+<div class="commentsBox"></div>
+<script>
+    // На странице post-details.html:
+    // 7 Вывести всю, без исключения, информацию про объект post на кнопку/ссылку которого был совершен клик ранее.
+    // 8 Ниже информации про пост, вывести все комментарии текущего поста (эндпоинт для получения информации - https://jsonplaceholder.typicode.com/posts/POST_ID/comments)
+
+    let url = new URL(location.href);
+    let post = JSON.parse(url.searchParams.get('data'));
+    console.log(post);
+
+    let postDetail = document.getElementsByClassName('postDetail')[0];
+    postDetail.innerHTML = `
+    <h3>${post.userId}.${post.id}. ${post.title}</h3>
+    <div>${post.body}</div>
+    `;
+
+    let comments = document.getElementsByClassName('commentsBox')[0];
+    fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
+        .then(response => response.json())
+        .then(commentsData => {
+            console.log(commentsData)
+            for (const commentItem of commentsData) {
+                let commentBox = document.createElement('div');
+                commentBox.classList.add('commentBox');
+                commentBox.innerHTML = `
+                <h4>${commentItem.id}. ${commentItem.name}</h4>
+                <div>Email: ${commentItem.email}</div><br>
+                <div>${commentItem.body}</div>
+                `;
+                comments.appendChild(commentBox);
+            }
+        });
+
+
+</script>
+</body>
+</html>

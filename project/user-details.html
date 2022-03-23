@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User details</title>
+    <style>
+        h1, h2, h3, h4 {
+            text-align: center;
+        }
+
+        .userBox {
+            margin: 20px 60px;
+            padding: 20px 80px;
+            border: 2px solid black;
+        }
+
+        button {
+            cursor: pointer;
+        }
+        .btnPosts {
+            width: 90%;
+            padding: 10px 40px;
+        }
+        .btnPosts, .btnPostDetails {
+            display: block;
+            margin: 0 auto;
+        }
+        .postsBox {
+            margin: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
+        }
+
+        .postBox {
+            box-sizing: border-box;
+            padding: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<h1>User details</h1>
+<div class="userBox"></div>
+<button class="btnPosts">Post of current user</button>
+<div class="postsBox"></div>
+<script>
+    // На странице user-details.html:
+    // 4 Вывести всю, без исключения, информацию про объект user на кнопку/ссылку которого был совершен клик ранее.
+    // 5 Добавить кнопку "post of current user", при клике на которую, появляются title всех постов текущего юзера
+    // (для получения постов используйте эндпоинт https://jsonplaceholder.typicode.com/users/USER_ID/posts)
+    // 6 Каждому посту добавить кнопку/ссылку, при клике на которую происходит переход на страницу post-details.html, которая имеет детальную информацию про текущий пост.
+
+    let url = new URL(location.href);
+
+    let user = JSON.parse(url.searchParams.get('data'));
+    // console.log(user);
+
+    let userDetails = document.getElementsByClassName('userBox')[0];
+    userDetails.innerHTML = `
+    <h2>${user.id} - ${user.name}</h2>
+    <h3>Username: ${user.username}</h3>
+    <div>Email: ${user.email}</div>
+    <ul>Address:
+<li>${user.address.street}</li>
+<li>${user.address.suite}</li>
+<li>${user.address.city}</li>
+<li>${user.address.zipcode}</li>
+<ul>Geo:
+<li>${user.address.geo.lat}</li>
+<li>${user.address.geo.lng}</li>
+</ul>
+</ul>
+<div>Phone: ${user.phone}</div>
+<div>Website: ${user.website}</div>
+<ul>Company:
+<li>${user.company.name}</li>
+<li>${user.company.catchPhrase}</li>
+<li>${user.company.bs}</li>
+</ul>
+    `;
+
+    let postsBox = document.getElementsByClassName('postsBox')[0];
+
+    let btnPosts = document.getElementsByClassName('btnPosts')[0];
+
+    btnPosts.onclick = (e) => {
+        e.preventDefault();
+        btnPosts.disabled = true;
+        fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
+            .then(response => response.json())
+            .then(postsData => {
+                console.log(postsData);
+                for (const postItem of postsData) {
+                    let postBox = document.createElement('div');
+                    postBox.classList.add('postBox');
+                    postBox.innerHTML = `<h4>${postItem.title}</h4>`;
+                    let btnPostDetails = document.createElement('button');
+                    btnPostDetails.classList.add('btnPostDetails');
+                    btnPostDetails.innerText = 'Post details';
+                    btnPostDetails.onclick = function () {
+                        location.href = `./post-details.html?data=${JSON.stringify(postItem)}`;
+                    };
+                    postBox.appendChild(btnPostDetails);
+                    postsBox.append(postBox);
+                }
+            });
+    };
+
+
+
+</script>
+</body>
+</html>
